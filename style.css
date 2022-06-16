@@ -1,0 +1,178 @@
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#game-board {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.letter-box {
+  border: 2px solid gray;
+  border-radius: 3px;
+  margin: 2px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.filled-box {
+  border: 2px solid black;
+}
+
+.letter-row {
+  display: flex;
+}
+
+#keyboard-cont {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+}
+
+#keyboard-cont div {
+  display: flex;
+
+}
+
+.second-row {
+  margin: 0.5rem 0;
+}
+
+.keyboard-button {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem;
+  width: auto;
+  height: 56px;
+  margin: 0 2px;
+  line-height: 1.2;
+  cursor: pointer;
+  text-transform: uppercase;
+
+}
+
+.keyboard-button:hover {
+  opacity: 50%;
+}
+
+.borderBlue {
+  border: 2px solid #3498db;
+  border-radius: 5px;
+}
+
+.flex {
+  display: flex;
+}
+
+/*  css reglas juego  */
+.oculto {
+  display: none;
+}
+.btnOculto{
+  display: none;
+}
+
+h2 {
+  text-align: center;
+  font-size: 25px;
+}
+
+p {
+  margin: 8px 0px;
+  font-size: 20px;
+}
+
+header span:hover {
+  background-color: whitesmoke;
+  border: 2px solid whitesmoke;
+  cursor: pointer;
+}
+
+.btnJugar{
+  background-color: #6aaa64;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover{
+  opacity: 0.8;
+}
+.container,
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.container-width {
+  max-width: 500px;
+}
+
+.icon-cross {
+  border: 2px solid #3498db;
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  right: 10%;
+  top: 20px;
+}
+
+.negrita {
+  font-weight: bold;
+}
+
+.card-flip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid gray;
+  width: 40px;
+  height: 40px;
+  text-transform: capitalize;
+  margin-right: 10px;
+}
+
+.card-flip p {
+  margin: 0px;
+  font-weight: bolder;
+}
+
+.verde .card-flip:first-of-type {
+  background-color: #6aaa64;
+  border: 2px solid #6aaa64;
+}
+
+.verde .card-flip:first-of-type p {
+  color: white;
+}
+
+.amarillo .card-flip:nth-child(3n) {
+  background-color: #c9b458;
+  border: 2px solid #c9b458;
+}
+
+.amarillo .card-flip:nth-child(3n) p {
+  color: white;
+}
+
+.gris .card-flip:last-of-type {
+  background-color: #787c7e;
+  border: 2px solid #787c7e;
+}
+
+.gris .card-flip:last-of-type p {
+  color: white;
+}

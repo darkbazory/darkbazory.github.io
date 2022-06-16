@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./icomoon/style.css">
+    <title>Wordle</title>
+    <!-- librerias -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-width">
+            <header>
+                <h2>Cómo jugar</h2>
+                <span class="icon-cross" id="cerrar"></span>
+            </header>
+            <div>
+                <p>Adivina la palabra oculta en seis intentos.</p>
+                <p>Cada intento debe ser una palabra válida de 5 letras.</p>
+                <p>Después de cada intento el color de las letras cambia para mostrar qué tan cerca estás de acertar la
+                    palabra.</p>
+                <p class="negrita">Ejemplos</p>
+                <div class="flex verde">
+                    <div class="card-flip">
+                        <p>r</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>u</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>b</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>i</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>a</p>
+                    </div>
+                </div>
+                <p>La letra <span class="negrita">R</span> está en la palabra y en la posición correcta.</p>
+                <div class="flex amarillo">
+                    <div class="card-flip">
+                        <p>v</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>o</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>c</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>a</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>l</p>
+                    </div>
+                </div>
+                <p>La letra <span class="negrita">C</span> está en la palabra pero en la posición incorrecta.</p>
+                <div class="flex gris">
+                    <div class="card-flip">
+                        <p>c</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>a</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>n</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>t</p>
+                    </div>
+                    <div class="card-flip">
+                        <p>o</p>
+                    </div>
+                </div>
+                <p>La letra <span class="negrita">O</span> no está en la palabra.</p>
+                <p>Puede haber letras repetidas y en ese caso las pistas son independientes para cada letra y tienen
+                    prioridad.</p>
+            </div>
+            <div class="flex-center">
+                <button class="btnJugar" id="btn-jugar">¡Jugar!</button>
+            </div>
+        </div>
+    </div>
+    <div class="oculto">
+        <h1>wordle</h1>
+        <div id="game-board">
+        </div>
+        <div id="keyboard-cont">
+            <div class="first-row">
+                <button class="keyboard-button">q</button>
+                <button class="keyboard-button">w</button>
+                <button class="keyboard-button">e</button>
+                <button class="keyboard-button">r</button>
+                <button class="keyboard-button">t</button>
+                <button class="keyboard-button">y</button>
+                <button class="keyboard-button">u</button>
+                <button class="keyboard-button">i</button>
+                <button class="keyboard-button">o</button>
+                <button class="keyboard-button">p</button>
+            </div>
+            <div class="second-row">
+                <button class="keyboard-button">a</button>
+                <button class="keyboard-button">s</button>
+                <button class="keyboard-button">d</button>
+                <button class="keyboard-button">f</button>
+                <button class="keyboard-button">g</button>
+                <button class="keyboard-button">h</button>
+                <button class="keyboard-button">j</button>
+                <button class="keyboard-button">k</button>
+                <button class="keyboard-button">l</button>
+                <button class="keyboard-button">ñ</button>
+            </div>
+            <div class="third-row">
+                <button class="keyboard-button">enviar</button>
+                <button class="keyboard-button">z</button>
+                <button class="keyboard-button">x</button>
+                <button class="keyboard-button">c</button>
+                <button class="keyboard-button">v</button>
+                <button class="keyboard-button">b</button>
+                <button class="keyboard-button">n</button>
+                <button class="keyboard-button">m</button>
+                <button class="keyboard-button" value="borrar">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        aria-hidden="true" style="width:1.5rem;height:1.5rem">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class=" flex-center">
+            <button class="btnJugar btnOculto" id="btn-volverJuego">Volver a Jugar!</button>
+        </div>
+    </div>
+    <script src="words.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
